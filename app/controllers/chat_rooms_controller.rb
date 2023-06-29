@@ -5,7 +5,7 @@ class ChatRoomsController < ApplicationController
 	end
 
 	def new
-		@chat_romm = ChatRoom.new
+		@chat_room = ChatRoom.new
 	end
 
 	def create
@@ -20,8 +20,8 @@ class ChatRoomsController < ApplicationController
 	end
 
 	def show
-		@chat_room = ChatRoom.includes(:nessages).find_by(id: params[:id])
-
+		@chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+		@message = Message.new
 	end
 
 	private
